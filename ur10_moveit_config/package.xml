@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>ur10_moveit_config</name>
+  <version>0.0.0</version>
+  <description>ur10 files used for MoveIt config</description>
+
+  <author email="UR@UR.gr">UR</author>
+
+  <maintainer email="UR@UR.gr">UR</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <run_depend>rviz2</run_depend>
+
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
+</package>

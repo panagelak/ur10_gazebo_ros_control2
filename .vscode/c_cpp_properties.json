@@ -1,0 +1,48 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/warehouse_ros_mongo/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_servo/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_visualization/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_planning_interface/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_benchmarks/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_warehouse/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/warehouse_ros/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/velocity_controllers/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/transmission_interface/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_simple_controller_manager/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_robot_interaction/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_move_group/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_planners_ompl/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_planning/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_perception/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_ros_occupancy_map_monitor/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_kinematics/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_core/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/srdfdom/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/ros2_control_test_assets/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/position_controllers/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/moveit_msgs/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/joint_trajectory_controller/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/joint_state_broadcaster/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/effort_controllers/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/forward_command_controller/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/diff_drive_controller/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/controller_manager/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/controller_interface/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/hardware_interface/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/geometric_shapes/include/**",
+        "/home/makeme/ros2_workspaces/base/ws_moveit2/install/controller_manager_msgs/include/**",
+        "/opt/ros/foxy/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

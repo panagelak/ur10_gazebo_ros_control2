@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<robot name="assistant" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+  <!-- common stuff -->
+  <!-- <xacro:include filename="$(find ur10_description)/urdf/common.gazebo.xacro" /> -->
+
+  <!-- ur10 -->
+  <xacro:include filename="$(find ur10_description)/urdf/ur10.urdf.xacro" />
+
+  <!--Initial positions-->
+  <xacro:arg name="initial_positions_file" default="$(find ur10_moveit_config)/config/initial_positions.yaml" />
+
+  <!--gazebo ros control INSIDE MACRO OF ROBOT-->
+  <!-- <xacro:include filename="$(find ur10_description)/urdf/ur.gazebo.xacro" /> -->
+
+  <!--FAKE COMPONENTS-->
+  <!-- Import ur10 ros2_control description (fake components)-->
+  <!--NOT INCLUDE GAZEBO PLUGIN WITH THAT-->
+  <!-- <xacro:include filename="$(find ur10_description)/urdf/ur.ros2_control.xacro" /> -->
+  <!-- <xacro:ur10_ros2_control name="UR10FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+
+  <!-- arm -->
+  <xacro:ur10_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+
+  <link name="world" />
+
+  <link name='ur_base'>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="100"/>
+      <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision name='collision'>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/> 
+      <geometry>
+        <box size = "0.2 0.2 1.3"/>
+      </geometry>
+    </collision>
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+      <geometry>
+        <box size = "0.2 0.2 1.3"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <gazebo reference="ur_base">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "ur_base" />
+    <origin xyz="0.0 0.0 0.65" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="ur_joint" type="fixed">
+    <parent link="ur_base" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.65" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!--vacuum gripper -->
+  <joint name="vacuum_joint" type="fixed">
+    <parent link="ee_link" />
+    <child link = "vacuum_link" />
+    <origin xyz="0.05 0 0" rpy="0.0 ${pi/2} 0.0" />
+  </joint>
+  <link name="vacuum_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="0.01" ixy="0.0" ixz="0.0"
+        iyy="0.01" iyz="0.0"
+        izz="0.01"/>
+    </inertial>
+  </link>
+
+</robot>
