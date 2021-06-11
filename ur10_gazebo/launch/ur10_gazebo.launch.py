@@ -84,16 +84,16 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'ur10'],
                         output='screen')
+    #210611
+    # load_joint_state_controller = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_start_controller', 'joint_state_controller'],
+    #     output='screen'
+    # )
 
-    load_joint_state_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_start_controller', 'joint_state_controller'],
-        output='screen'
-    )
-
-    load_joint_trajectory_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_start_controller', 'joint_trajectory_controller'],
-        output='screen'
-    )
+    # load_joint_trajectory_controller = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_start_controller', 'joint_trajectory_controller'],
+    #     output='screen'
+    # )
 
     # Static TF
     #static_tf = Node(package='tf2_ros',
@@ -103,18 +103,19 @@ def generate_launch_description():
     #                 arguments=['0.0', '0.0', '0.65', '0.0', '0.0', '0.0', 'world', 'ur_base'])
 
     return LaunchDescription([
-      RegisterEventHandler(
-          event_handler=OnProcessExit(
-              target_action=spawn_entity,
-              on_exit=[load_joint_state_controller],
-          )
-      ),
-      RegisterEventHandler(
-          event_handler=OnProcessExit(
-              target_action=load_joint_state_controller,
-              on_exit=[load_joint_trajectory_controller],
-          )
-      ),
+    #210611
+    #   RegisterEventHandler(
+    #       event_handler=OnProcessExit(
+    #           target_action=spawn_entity,
+    #           on_exit=[load_joint_state_controller],
+    #       )
+    #   ),
+    #   RegisterEventHandler(
+    #       event_handler=OnProcessExit(
+    #           target_action=load_joint_state_controller,
+    #           on_exit=[load_joint_trajectory_controller],
+    #       )
+    #   ),
       gazebo,
       node_robot_state_publisher,
       #static_tf,
