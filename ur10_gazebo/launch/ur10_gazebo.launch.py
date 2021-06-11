@@ -95,12 +95,12 @@ def generate_launch_description():
     #     output='screen'
     # )
 
-    # Static TF
-    #static_tf = Node(package='tf2_ros',
-    #                 executable='static_transform_publisher',
-    #                 name='static_transform_publisher',
-    #                 output='log',
-    #                 arguments=['0.0', '0.0', '0.65', '0.0', '0.0', '0.0', 'world', 'ur_base'])
+    #Static TF
+    static_tf = Node(package='tf2_ros',
+                    executable='static_transform_publisher',
+                    name='static_transform_publisher',
+                    output='log',
+                    arguments=['0.0', '0.0', '0.65', '0.0', '0.0', '0.0', 'world', 'ur_base'])
 
     return LaunchDescription([
     #210611
@@ -118,6 +118,6 @@ def generate_launch_description():
     #   ),
       gazebo,
       node_robot_state_publisher,
-      #static_tf,
+      static_tf,
       spawn_entity
     ])
