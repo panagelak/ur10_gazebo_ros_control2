@@ -7,7 +7,9 @@
 controller_manager:
   ros__parameters:
     #update_rate: 100 # Hz
-    update_rate: 1000 # Hz
+    #210611 if NOT set, ur10 dangles down with gravity
+    #TODO test other values
+    #update_rate: 1000 # Hz =Gazebo
 
     joint_trajectory_controller:
       type: joint_trajectory_controller/JointTrajectoryController
