@@ -1,13 +1,13 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
+    #update_rate: 100  # Hz
+    #update_rate: 1000 # Hz  =Gazebo
 
     ur10_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_controller:
       type: joint_state_controller/JointStateController
-
 
 ur10_arm_controller:
   ros__parameters:
